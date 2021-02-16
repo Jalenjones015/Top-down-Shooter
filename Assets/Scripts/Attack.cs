@@ -29,11 +29,17 @@ public class Attack : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Death by Bullet");
+          
+        }
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            
-          
+            Debug.Log("Bullet Destroy");
         }
     }
 }
