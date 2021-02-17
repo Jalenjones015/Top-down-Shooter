@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public KeyCode left;
     public GameObject player;
     public float speed;
-    public Healthdrain hp;
+
+   
 
     public void Update()
     {
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            hp.losehp();
+           
             Debug.Log("Death");
         }
     }

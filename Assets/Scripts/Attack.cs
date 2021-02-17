@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Attack : MonoBehaviour
 {
     public Transform point;
@@ -10,7 +9,8 @@ public class Attack : MonoBehaviour
     public float bullforce = 1f;
     public float betweenshots = .1f;
     private float tim = 0f;
-    public Transform particles;
+    public Manager gm;
+    public GameObject inv;
 
     void Update()
     {
@@ -18,7 +18,6 @@ public class Attack : MonoBehaviour
         {
             shoot();
             tim = Time.time + betweenshots;
-            Instantiate(particles);
         }
     }
 
@@ -38,6 +37,13 @@ public class Attack : MonoBehaviour
             Debug.Log("Death by Bullet");
 
         }
+
+        if (other.tag == "Enemy")
+        {
+            inv.gameObject.SetActive(false);
+            Debug.Log("Bullet");
+            gm.Lose();
+        }   
     }
 }
 
