@@ -19,7 +19,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    void shoot()
+    public void shoot()
     {
         GameObject bullet = Instantiate(bulletpre, point.position, point.rotation);
         Rigidbody rigid = bullet.GetComponent<Rigidbody>();

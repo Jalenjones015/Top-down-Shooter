@@ -19,4 +19,14 @@ public class Enemy : MonoBehaviour
         transform.Translate(position.x * Time.deltaTime * Speed, position.y * Time.deltaTime * Speed, 0);
 
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Bullet");
+        }
+    }
+
 }

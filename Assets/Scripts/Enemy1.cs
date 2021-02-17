@@ -7,7 +7,7 @@ public class Enemy1 : MonoBehaviour
     public float speed;
     public float retreat;
     public Transform enemy;
-    public float betweenshots = .1f;
+    private float betweenshots = .1f;
     public float startbetweenshots  = 0f;
     public GameObject bullet;
 
