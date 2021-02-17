@@ -39,7 +39,7 @@ public class Attack : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            Debug.Log("Bullet Destroy");
+            Debug.Log("Bullet");
         }
     }
 }

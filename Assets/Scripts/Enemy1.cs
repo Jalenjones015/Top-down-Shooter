@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    public float retreat;
+    public Transform enemy;
+    public float betweenshots = .1f;
+    public float startbetweenshots  = 0f;
+    public GameObject bullet;
+
+    public void Start()
     {
-        
+        enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
+        betweenshots = startbetweenshots;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+       
+        if(Vector2.Distance(transform.position, enemy.position) > retreat)
+        {
+            transform.position = this.transform.position;
+        }
+        else if(Vector2.Distance(transform.position, enemy.position) < retreat)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, enemy.position, -speed * Time.deltaTime);
+        }
+
+
+        if(betweenshots <= 0)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+            betweenshots = startbetweenshots;
+            
+        }
+
+        else
+        {
+            betweenshots -= Time.deltaTime;
+        }
     }
 }
