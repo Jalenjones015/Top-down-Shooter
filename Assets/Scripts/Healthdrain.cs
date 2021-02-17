@@ -6,18 +6,25 @@ using UnityEngine.UI;
 
 public class Healthdrain : MonoBehaviour
 {
-    public Health health;
-    public Image fill;
-    private Slider slider;
-    
-    private void Awake()
+    private float maxhp = 100, curhp;
+    public float damage = 10;
+    public Image bar;
+    float t = 0;
+
+    public void Start()
     {
-        slider = GetComponent<Slider>();
+        curhp = maxhp;
+
     }
 
-    private void Update()
+    public void Update()
     {
-        float fillvalue = health.curheath / health.maxhealth;
-        slider.value = fillvalue;
+        bar.fillAmount = curhp / maxhp;
+    }
+
+    public void losehp()
+    {
+        curhp -= damage;
+        t = 0;
     }
 }
