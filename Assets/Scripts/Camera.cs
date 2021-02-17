@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    internal static object main;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform player;
+    public float Smoove;
+    public Vector2 min;
+    public Vector2 max;
 
-    // Update is called once per frame
-    void Update()
+   
+
+    private void LateUpdate()
     {
-        
+        if (transform.position != player.position)
+        {
+            Vector3 target = new Vector3(player.position.x, player.position.y, transform.position.z);
+            target.x = Mathf.Clamp(target.x, min.x, max.x);
+            target.y = Mathf.Clamp(target.y, min.y, max.y);
+            transform.position = Vector3.Lerp(transform.position, target, Smoove);
+
+        }
     }
 }
