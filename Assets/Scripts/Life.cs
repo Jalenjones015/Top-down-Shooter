@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    public float health = 100f;
+    public float health = 10f;
 }

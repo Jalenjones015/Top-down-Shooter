@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float health = 100f;
     private Image bar;
     public float curheath;
-    private float maxhealth = 100f;
+    public float maxhealth = 10f;
     Life player;
 
     private void Start()
