@@ -9,7 +9,8 @@ public class Healthdrain : MonoBehaviour
     private float maxhp = 100, curhp;
     public float damage = 10;
     public Image bar;
-    float t = 0;
+    public GameObject player;
+   
 
     public void Start()
     {
@@ -25,6 +26,6 @@ public class Healthdrain : MonoBehaviour
     public void losehp()
     {
         curhp -= damage;
-        t = 0;
+  
     }
 }

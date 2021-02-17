@@ -22,10 +22,10 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            Debug.Log("Bullet");
+            Debug.Log("Enemy Col");
         }
     }
 
