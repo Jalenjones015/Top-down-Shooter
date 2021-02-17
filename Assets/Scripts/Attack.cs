@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Attack : MonoBehaviour
 {
     public Transform point;
@@ -9,6 +10,7 @@ public class Attack : MonoBehaviour
     public float bullforce = 1f;
     public float betweenshots = .1f;
     private float tim = 0f;
+    public Transform particles;
 
     void Update()
     {
@@ -16,6 +18,7 @@ public class Attack : MonoBehaviour
         {
             shoot();
             tim = Time.time + betweenshots;
+            Instantiate(particles);
         }
     }
 
@@ -27,7 +30,7 @@ public class Attack : MonoBehaviour
         Destroy(bullet, 2f);
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
