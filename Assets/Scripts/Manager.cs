@@ -5,7 +5,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     public Player player;
-    public Vector2 ps;
+    public Vector3 ps;
     public GameObject win;
     public GameObject lose;
 
